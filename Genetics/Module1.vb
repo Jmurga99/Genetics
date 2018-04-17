@@ -17,6 +17,7 @@
         Next
         Dim perro As Creature = New Creature(arr)
         perro.pool()
+        perro.genes()
         System.Console.ReadKey()
     End Sub
 

@@ -1,7 +1,7 @@
 ﻿Public Class Creature
 
     Private poolg(,) As Byte
-    Private fenotipo As Array
+    Private fenotipo() As String
     Private genotipo() As Byte
     Private emparejar As Byte
     Private poolf(,) As String
@@ -28,11 +28,27 @@
         genotipo = h
     End Sub
 
+    Private Sub llenarf(ByVal adn() As Byte)
+
+        Dim a(adn.Length) As String
+
+        For i As Byte = 0 To adn.Length - 1
+            Dim b As Byte = adn(i)
+            For j As Byte = 0 To poolf.GetLength(0) - 1
+                If b = poolg(i, j) Then
+                    a(i) = poolf(i, j)
+                End If
+            Next
+        Next
+        fenotipo = a
+    End Sub
+
     Public Sub New(ByVal pool(,) As String)
 
         poolf = pool
         llenarpg(poolf)
         llenarg(poolg)
+        llenarf(genotipo)
 
     End Sub
 
@@ -50,6 +66,15 @@
 
         For i As Integer = 0 To genotipo.Length - 1
             System.Console.Write(genotipo(i) & " ")
+        Next
+        System.Console.WriteLine()
+
+    End Sub
+
+    Public Sub fenos()
+
+        For i As Integer = 0 To fenotipo.Length - 1
+            System.Console.Write(fenotipo(i) & " ")
         Next
         System.Console.WriteLine()
 

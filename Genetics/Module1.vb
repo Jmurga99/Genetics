@@ -19,6 +19,7 @@
         perro.pool()
         perro.genes()
         perro.fenos()
+        System.Console.WriteLine(perro.emp)
         System.Console.ReadKey()
     End Sub
 

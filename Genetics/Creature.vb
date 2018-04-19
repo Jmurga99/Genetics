@@ -43,12 +43,18 @@
         fenotipo = a
     End Sub
 
+    Private Sub llenare()
+        Dim genrator As New Random
+        emparejar = genrator.Next(0, 1)
+    End Sub
+
     Public Sub New(ByVal pool(,) As String)
 
         poolf = pool
         llenarpg(poolf)
         llenarg(poolg)
         llenarf(genotipo)
+        llenare()
 
     End Sub
 
@@ -79,6 +85,12 @@
         System.Console.WriteLine()
 
     End Sub
+
+    Public ReadOnly Property emp
+        Get
+            Return emparejar
+        End Get
+    End Property
 
 
 End Class
